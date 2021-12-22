@@ -9,22 +9,20 @@ void main() {
     });
 
     tearDownAll(() {
-      if (driver != null) {
-        driver?.close();
-      }
+      driver?.close();
     });
 
-    var textField = find.byType("TextField");
-    var tempInfo = find.byType("Temperature");
-    var button = find.byType("");
+    var textField = find.byValueKey("TextField");
+    var tempInfo = find.byValueKey("Temperature");
+    var button = find.byValueKey("");
 
     test("get temperature ", () async {
-      await driver?.tap(textField);
+      await driver?.tap(find.byValueKey(textField));
       await driver?.clearTimeline();
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 2));
       await driver?.enterText("Mumbai");
       await driver?.waitForAbsent(tempInfo);
-      await driver?.tap(button);
+      await driver?.tap(find.byValueKey(button));
       await driver?.waitFor(tempInfo);
       await driver?.waitUntilNoTransientCallbacks();
       // ignore: unnecessary_null_comparison

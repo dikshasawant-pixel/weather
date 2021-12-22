@@ -18,6 +18,7 @@ class DataService {
 
     final response = await http.get(uri);
 
+    // ignore: avoid_print
     print(response.body);
     final json = jsonDecode(response.body);
     return WeatherResponse.fromJson(json);
