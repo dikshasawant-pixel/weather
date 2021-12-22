@@ -32,6 +32,7 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
+        backgroundColor: Colors.pink[50],
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -57,7 +58,10 @@ class _MyAppState extends State<MyApp> {
                       textAlign: TextAlign.center),
                 ),
               ),
-              ElevatedButton(onPressed: _search, child: const Text('Search'))
+              ElevatedButton(
+                onPressed: _search,
+                child: const Text('Search'),
+              ),
             ],
           ),
         ),
